@@ -1,34 +1,22 @@
 # GrpcWebAngular
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.6.
 
-## Development server
+## Build js file from proto file using protoc
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+##### Make sure you read and installed the protoc and protoc-grpc-web plugin from [here](https://github.com/grpc/grpc-web)
 
-## Code scaffolding
+`$ protoc -I=<proto file destination> <proto file name> \`
+  `--js_out=import_style=commonjs:<pb file destination> \`
+  `--grpc-web_out=import_style=commonjs,mode=grpcwebtext:<web_pb file destination>`
+  
+>> Note: For file destination, you can use . for current folder
+  
+##### By default of this demo, you can use:
+`$ protoc -I=. primary.proto \`
+`  --js_out=import_style=commonjs:src/proto \`
+`  --grpc-web_out=import_style=commonjs,mode=grpcwebtext:src/proto`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Import generated js files into Angular js file
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-## Build js file from proto file
-
-$ protoc -I=. primary.proto \
-  --js_out=import_style=commonjs:. \
-  --grpc-web_out=import_style=commonjs,mode=grpcwebtext:.
-
+`import { PrimaryClient } from '../proto/primary_grpc_web_pb.js';`
+`import { AddRequest, AddResponse } from '../proto/primary_pb.js';`

@@ -19,14 +19,4 @@ To run the server, use this command
 
 `$ go run main.go`
 
-To run the client, first get the dependencies using this command
-
-`$ npm install`
-
-Then to run the client, use this command (you can provide any two integer numbers as arguments)
-
-`$ node grpc-client.js`
-
-and you will get the output in the client side as
-
 
