@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package primary;
+
+message JsonReq {
+    string ReqName = 1;
+    string ReqBytes = 2;
+}
+
+message JsonResp {
+    int32 ResStatus = 1;
+    string ResBytes  = 2;
+}
+
+message ExampleReq {
+    string ReqStr = 1;
+}
+
+message ExampleResp {
+    string RespStr = 1;
+}
+
+message AddRequest {
+    int32 number = 1;
+    int32 anotherNumber = 2;
+}
+
+message AddResponse {
+    int64 sum = 1;
+}
+
+service Primary {
+    rpc JsonRpc (JsonReq) returns (JsonResp) {}
+    rpc ExampleRpc (ExampleReq) returns (ExampleResp) {}
+    rpc Add (AddRequest) returns (AddResponse) {}
+}

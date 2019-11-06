@@ -1,0 +1,25 @@
+<div class="page">
+  <label class="field a-field a-field_a3">
+    <input type="number" class="field__input a-field__input" placeholder="e.g. 17, 09,..." required #firstNum>
+    <span class="a-field__label-wrap">
+      <span class="a-field__label">First number</span>
+    </span>
+  </label>
+  <label class="field a-field a-field_a3">
+    <input type="number" class="field__input a-field__input" placeholder="e.g. 04, 20,..." required #secondNum>
+    <span class="a-field__label-wrap">
+      <span class="a-field__label">Second number</span>
+    </span>
+  </label>
+
+  <div class="container">
+    <button class="btn-pill" (click)="onCaculate()">
+      <span>Caculate!</span>
+    </button>
+  </div>
+
+  <div class="container">
+    <div class="result">{{result}}</div>
+  </div>
+
+</div>
